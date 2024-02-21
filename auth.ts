@@ -5,5 +5,11 @@ import Google from "next-auth/providers/google";
 
 export const { auth, signIn, signOut } = NextAuth({
   ...authConfig,
-  providers: [Credentials({}), Google],
+  providers: [
+    Credentials({}),
+    Google({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
+  ],
 });
