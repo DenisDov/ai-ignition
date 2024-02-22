@@ -1,6 +1,6 @@
 import { signIn } from "@/auth";
 
-export default function RegisterPage() {
+export default function LoginPage() {
   return (
     <div>
       <form

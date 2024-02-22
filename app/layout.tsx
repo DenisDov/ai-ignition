@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { fontSans } from "@/lib/fonts";
 import "@/styles/globals.css";
+import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "AI Ignition",
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={fontSans.variable}>
+        <Header />
         <main className="container mx-auto">{children}</main>
       </body>
     </html>
