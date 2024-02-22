@@ -22,7 +22,7 @@ export default function RegisterPage() {
           <FormSeparator text="or" />
         </div>
         <div>
-          <AuthForm />
+          <AuthForm type="register" />
         </div>
       </div>
       <div className="basis-96">

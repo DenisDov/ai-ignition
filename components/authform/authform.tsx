@@ -21,7 +21,17 @@ function RegisterButton() {
   );
 }
 
-export default function AuthForm() {
+function LoginButton() {
+  const { pending } = useFormStatus();
+  return (
+    <Button className="mt-4 w-full" aria-disabled={pending} disabled={pending}>
+      {pending && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
+      {pending ? "Please wait..." : "Sign in"}
+    </Button>
+  );
+}
+
+export default function AuthForm({ type }: { type: string }) {
   const [errorMessage, dispatch] = useFormState(register, undefined);
   return (
     <form action={dispatch}>
@@ -43,7 +53,8 @@ export default function AuthForm() {
         required
         minLength={6}
       />
-      <RegisterButton />
+      {type === "register" ? <RegisterButton /> : <LoginButton />}
+
       <div
         className="flex h-8 items-end space-x-1"
         aria-live="polite"
