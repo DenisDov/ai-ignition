@@ -13,7 +13,7 @@ export default function RegisterPage() {
         <p>
           Already have an account? <Link href="/login">Log in</Link>
         </p>
-        <div className="grid gap-3">
+        <div className="grid gap-3 mt-4">
           <SocialSignInButton provider="facebook" />
           <SocialSignInButton provider="google" />
           <SocialSignInButton provider="twitter" />
