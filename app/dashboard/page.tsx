@@ -24,8 +24,8 @@ export default async function DashboardPage() {
   let session = await auth();
   let user = session?.user;
 
-  const { rows } = await sql`SELECT * from PLAYERS`;
-  // console.log("rows: ", rows);
+  const { rows } = await sql`SELECT * from USERS`;
+  console.log("rows: ", rows);
 
   return (
     <div className="space-y-2">

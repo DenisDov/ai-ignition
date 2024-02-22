@@ -24,7 +24,8 @@ const SocialSignInButton = ({ provider }: SocialSignInButtonProps) => {
 
   const handleSignIn = async () => {
     "use server";
-    await signIn(provider);
+    const userData = await signIn(provider);
+    console.log("userData: ", userData);
   };
 
   return (
