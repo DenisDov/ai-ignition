@@ -7,15 +7,28 @@ import { z } from "zod";
 import bcrypt from "bcrypt";
 import { getUser } from "./data";
 
+export type State = {
+  errors?: {
+    email?: string[];
+    password?: string[];
+  };
+  message?: string | null;
+};
+
 export async function authenticate(
   prevState: string | undefined,
   formData: FormData
 ) {
   try {
-    const email = formData.get("email");
-    const user = await getUser(email);
-    if (!user) await signIn("credentials", formData);
-    return "User registered with another social provider";
+    const emailValue = formData.get("email");
+    if (emailValue !== null && typeof emailValue === "string") {
+      const user = await getUser(emailValue);
+      if (!user) await signIn("credentials", formData);
+      return "User registered with another social provider";
+    } else {
+      // Handle the case where email is null or not a string
+      console.error("Email is null or not a string");
+    }
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {
@@ -28,14 +41,6 @@ export async function authenticate(
     throw error;
   }
 }
-
-export type State = {
-  errors?: {
-    email?: string[];
-    password?: string[];
-  };
-  message?: string | null;
-};
 
 const FormSchema = z.object({
   email: z.string().email(),
