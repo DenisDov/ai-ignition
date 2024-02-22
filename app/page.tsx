@@ -2,6 +2,7 @@ import { signIn } from "@/auth";
 import SocialSignInButton from "@/components/SocialSignInButton";
 import Link from "next/link";
 import Image from "next/image";
+import FormSeparator from "@/components/FormSeparator";
 
 export default async function HomePage() {
   return (
@@ -16,6 +17,9 @@ export default async function HomePage() {
           <SocialSignInButton provider="facebook" />
           <SocialSignInButton provider="google" />
           <SocialSignInButton provider="twitter" />
+        </div>
+        <div className="my-4">
+          <FormSeparator text="or" />
         </div>
       </div>
       <div className="basis-96">
