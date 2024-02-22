@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <div className="p-10 grid gap-10">
+    <div className="grid gap-10 bg-white p-6 my-12 rounded-xl">
       <h1>LANDING PAGE</h1>
       <div className="flex gap-2">
         <Button asChild>
