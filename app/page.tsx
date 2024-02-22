@@ -1,8 +1,16 @@
-import Image from "next/image";
-import { sql } from "@vercel/postgres";
+import { signIn } from "@/auth";
 
-export default async function Home() {
-  const { rows } = await sql`SELECT * from PLAYERS`;
-  console.log("rows: ", rows);
-  return <div className="flex items-center justify-between">test</div>;
+export default async function HomePage() {
+  return (
+    <div>
+      <form
+        action={async () => {
+          "use server";
+          await signIn("google");
+        }}
+      >
+        <button type="submit">login with google</button>
+      </form>
+    </div>
+  );
 }
