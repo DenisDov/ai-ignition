@@ -20,15 +20,7 @@ export async function authenticate(
   formData: FormData
 ) {
   try {
-    const emailValue = formData.get("email");
-    if (emailValue !== null && typeof emailValue === "string") {
-      const user = await getUser(emailValue);
-      if (!user) await signIn("credentials", formData);
-      return "User registered with another social provider";
-    } else {
-      // Handle the case where email is null or not a string
-      console.error("Email is null or not a string");
-    }
+    await signIn("credentials", formData);
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {

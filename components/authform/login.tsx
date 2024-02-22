@@ -1,25 +1,10 @@
 "use client";
 
-import { signIn } from "@/auth";
-import SocialSignInButton from "@/components/SocialSignInButton";
-import Link from "next/link";
-import Image from "next/image";
-import FormSeparator from "@/components/FormSeparator";
 import { Button } from "@/components/ui/button";
 
 import { useFormState, useFormStatus } from "react-dom";
-import { register } from "@/lib/actions";
+import { authenticate } from "@/lib/actions";
 import { ReloadIcon } from "@radix-ui/react-icons";
-
-function RegisterButton() {
-  const { pending } = useFormStatus();
-  return (
-    <Button className="mt-4 w-full" aria-disabled={pending} disabled={pending}>
-      {pending && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
-      {pending ? "Please wait..." : "Sign up"}
-    </Button>
-  );
-}
 
 function LoginButton() {
   const { pending } = useFormStatus();
@@ -31,8 +16,8 @@ function LoginButton() {
   );
 }
 
-export default function AuthForm({ type }: { type: string }) {
-  const [errorMessage, dispatch] = useFormState(register, undefined);
+export default function LoginForm() {
+  const [errorMessage, dispatch] = useFormState(authenticate, undefined);
   return (
     <form action={dispatch}>
       <input
@@ -53,7 +38,7 @@ export default function AuthForm({ type }: { type: string }) {
         required
         minLength={6}
       />
-      {type === "register" ? <RegisterButton /> : <LoginButton />}
+      <LoginButton />
 
       <div
         className="flex h-8 items-end space-x-1"

@@ -2,7 +2,7 @@ import SocialSignInButton from "@/components/SocialSignInButton";
 import Link from "next/link";
 import Image from "next/image";
 import FormSeparator from "@/components/FormSeparator";
-import AuthForm from "@/components/authform/authform";
+import LoginForm from "@/components/authform/login";
 
 export default function LoginPage() {
   return (
@@ -12,8 +12,7 @@ export default function LoginPage() {
         <p>
           {`Don't have an account?`} <Link href="/register">Sign up</Link>
         </p>
-
-        <div className="grid gap-3 mt-4">
+        <div className="grid gap-3">
           <SocialSignInButton provider="facebook" />
           <SocialSignInButton provider="google" />
           <SocialSignInButton provider="twitter" />
@@ -22,7 +21,7 @@ export default function LoginPage() {
           <FormSeparator text="or" />
         </div>
         <div>
-          <AuthForm type="login" />
+          <LoginForm />
         </div>
       </div>
       <div className="basis-96">
