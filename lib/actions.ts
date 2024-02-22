@@ -42,7 +42,7 @@ const FormSchema = z.object({
   password: z.string().min(6),
 });
 
-export async function register(prevState: State, formData: FormData) {
+export async function register(prevState: any, formData: FormData) {
   // Validate form using Zod
   const validatedFields = FormSchema.safeParse({
     email: formData.get("email"),
