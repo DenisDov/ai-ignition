@@ -35,11 +35,11 @@ export default async function DashboardPage() {
       {user && (
         <div>
           <SignOut>
-            <p>{`Welcome ${user?.name}`}</p>
+            <p>{`Welcome ${user?.name || user.email}`}</p>
             <p>{user?.email}</p>
             <Avatar>
               <AvatarImage src={user?.image!} />
-              <AvatarFallback>{getInitials(user?.name!)}</AvatarFallback>
+              <AvatarFallback>{getInitials(user?.name! || "O")}</AvatarFallback>
             </Avatar>
           </SignOut>
         </div>

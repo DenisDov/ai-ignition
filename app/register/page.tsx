@@ -1,20 +1,3 @@
-// import { signIn } from "@/auth";
-
-// export default function LoginPage() {
-//   return (
-//     <div>
-//       <form
-//         action={async () => {
-//           "use server";
-//           await signIn("google");
-//         }}
-//       >
-//         <button>login with google</button>
-//       </form>
-//     </div>
-//   );
-// }
-
 "use client";
 
 import { signIn } from "@/auth";
@@ -25,27 +8,27 @@ import FormSeparator from "@/components/FormSeparator";
 import { Button } from "@/components/ui/button";
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 import { useFormState, useFormStatus } from "react-dom";
-import { authenticate } from "@/lib/actions";
+import { register } from "@/lib/actions";
 
-function LoginButton() {
+function RegisterButton() {
   const { pending } = useFormStatus();
 
   return (
     <Button className="mt-4 w-full" aria-disabled={pending}>
       <ChevronRightIcon className="h-4 w-4" />
-      Log in
+      Register
     </Button>
   );
 }
 
-export default function LoginPage() {
-  const [errorMessage, dispatch] = useFormState(authenticate, undefined);
+export default function RegisterPage() {
+  const [errorMessage, dispatch] = useFormState(register, undefined);
   return (
     <div className="bg-white flex gap-20 my-12 rounded-xl">
       <div className="p-6 flex-1">
-        <h2>Sign in</h2>
+        <h2>Create an account</h2>
         <p>
-          {`Don't have an account?`} <Link href="/register">Sign up</Link>
+          Already have an account? <Link href="/login">Log in</Link>
         </p>
 
         {/* <div className="grid gap-3">
@@ -76,14 +59,14 @@ export default function LoginPage() {
               required
               minLength={6}
             />
-            <LoginButton />
+            <RegisterButton />
             <div
               className="flex h-8 items-end space-x-1"
               aria-live="polite"
               aria-atomic="true"
             >
               {errorMessage && (
-                <p className="text-sm text-red-500">{errorMessage}</p>
+                <p className="text-sm text-red-500">{errorMessage.message}</p>
               )}
             </div>
           </form>
@@ -97,6 +80,15 @@ export default function LoginPage() {
           alt="Picture of the author"
         />
       </div>
+
+      {/* <form
+        action={async () => {
+          "use server";
+          await signIn("google");
+        }}
+      >
+        <button type="submit">login with google</button>
+      </form> */}
     </div>
   );
 }
