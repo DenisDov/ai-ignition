@@ -23,6 +23,7 @@ function SignOut({ children }: { children: React.ReactNode }) {
 export default async function DashboardPage() {
   let session = await auth();
   let user = session?.user;
+  console.log("user: ", user);
 
   const { rows } = await sql`SELECT * from USERS`;
   console.log("rows: ", rows);

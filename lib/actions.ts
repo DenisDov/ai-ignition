@@ -5,13 +5,17 @@ import { sql } from "@vercel/postgres";
 import { AuthError } from "next-auth";
 import { z } from "zod";
 import bcrypt from "bcrypt";
+import { getUser } from "./data";
 
 export async function authenticate(
   prevState: string | undefined,
   formData: FormData
 ) {
   try {
-    await signIn("credentials", formData);
+    const email = formData.get("email");
+    const user = await getUser(email);
+    if (!user) await signIn("credentials", formData);
+    return "User registered with another social provider";
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {
@@ -56,22 +60,28 @@ export async function register(prevState: State, formData: FormData) {
   // Prepare data for insertion into the database
   const { email, password } = validatedFields.data;
 
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const user = await getUser(email);
 
-  const credentials = "credentials";
+  if (!user) {
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-  // Insert data into the database
-  try {
-    await sql`
+    const credentials = "credentials";
+
+    // Insert data into the database
+    try {
+      await sql`
       INSERT INTO users (email, password, registration_method)
       VALUES (${email}, ${hashedPassword}, ${credentials})
     `;
-    console.log("CREATED USER", email);
-  } catch (error) {
-    console.log("error: ", error);
-    // If a database error occurs, return a more specific error.
+    } catch (error) {
+      // If a database error occurs, return a more specific error.
+      return {
+        message: "Database Error: Failed to Create User.",
+      };
+    }
+  } else {
     return {
-      message: "Database Error: Failed to Create User.",
+      message: "User already exist",
     };
   }
 }

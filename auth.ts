@@ -41,4 +41,24 @@ export const {
       },
     }),
   ],
+  callbacks: {
+    async signIn({ account, profile }) {
+      if (account?.provider === "google") {
+        const email = profile?.email;
+        const name = profile?.name;
+        const user = await getUser(profile?.email!);
+        if (!user) {
+          try {
+            await sql`
+              INSERT INTO users (name, email, registration_method)
+              VALUES (${name}, ${email}, ${account?.provider})
+            `;
+          } catch (error) {
+            console.log("create user error: ", error);
+          }
+        }
+      }
+      return true;
+    },
+  },
 });
