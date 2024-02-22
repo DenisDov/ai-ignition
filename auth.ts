@@ -6,7 +6,7 @@ import { z } from "zod";
 import { authConfig } from "./auth.config";
 import { sql } from "@vercel/postgres";
 import type { User } from "@/lib/definitions";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs-react";
 import { getUser } from "@/lib/data";
 
 export const {
@@ -17,16 +17,15 @@ export const {
 } = NextAuth({
   ...authConfig,
   providers: [
-    // Google({
-    //   clientId: process.env.GOOGLE_CLIENT_ID,
-    //   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    // }),
+    Google({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
     Credentials({
       async authorize(credentials) {
         const parsedCredentials = z
           .object({ email: z.string().email(), password: z.string().min(6) })
           .safeParse(credentials);
-        // console.log("parsedCredentials: ", parsedCredentials);
 
         if (parsedCredentials.success) {
           const { email, password } = parsedCredentials.data;
