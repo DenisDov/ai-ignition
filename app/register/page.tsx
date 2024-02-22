@@ -6,17 +6,17 @@ import Link from "next/link";
 import Image from "next/image";
 import FormSeparator from "@/components/FormSeparator";
 import { Button } from "@/components/ui/button";
-import { ChevronRightIcon } from "@radix-ui/react-icons";
+
 import { useFormState, useFormStatus } from "react-dom";
 import { register } from "@/lib/actions";
+import { ReloadIcon } from "@radix-ui/react-icons";
 
 function RegisterButton() {
   const { pending } = useFormStatus();
-
   return (
-    <Button className="mt-4 w-full" aria-disabled={pending}>
-      <ChevronRightIcon className="h-4 w-4" />
-      Register
+    <Button className="mt-4 w-full" aria-disabled={pending} disabled={pending}>
+      {pending && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
+      {pending ? "Please wait..." : "Sign up"}
     </Button>
   );
 }
@@ -80,15 +80,6 @@ export default function RegisterPage() {
           alt="Picture of the author"
         />
       </div>
-
-      {/* <form
-        action={async () => {
-          "use server";
-          await signIn("google");
-        }}
-      >
-        <button type="submit">login with google</button>
-      </form> */}
     </div>
   );
 }

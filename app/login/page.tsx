@@ -23,17 +23,16 @@ import Link from "next/link";
 import Image from "next/image";
 import FormSeparator from "@/components/FormSeparator";
 import { Button } from "@/components/ui/button";
-import { ChevronRightIcon } from "@radix-ui/react-icons";
+import { ReloadIcon } from "@radix-ui/react-icons";
 import { useFormState, useFormStatus } from "react-dom";
 import { authenticate } from "@/lib/actions";
 
 function LoginButton() {
   const { pending } = useFormStatus();
-
   return (
-    <Button className="mt-4 w-full" aria-disabled={pending}>
-      <ChevronRightIcon className="h-4 w-4" />
-      Log in
+    <Button className="mt-4 w-full" aria-disabled={pending} disabled={pending}>
+      {pending && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
+      {pending ? "Please wait..." : "Log in"}
     </Button>
   );
 }
