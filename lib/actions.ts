@@ -5,6 +5,7 @@ import { sql } from "@vercel/postgres";
 import { AuthError } from "next-auth";
 import { z } from "zod";
 import bcrypt from "bcrypt";
+import { redirect } from "next/navigation";
 
 export async function authenticate(
   prevState: string | undefined,
@@ -75,7 +76,5 @@ export async function register(prevState: State, formData: FormData) {
     };
   }
 
-  // Revalidate the cache for the invoices page and redirect the user.
-  // revalidatePath("/dashboard/invoices");
-  // redirect("/dashboard/invoices");
+  // redirect("/dashboard");
 }
