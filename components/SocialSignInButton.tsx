@@ -1,39 +1,41 @@
-import { FaGoogle, FaFacebook, FaTwitter } from "react-icons/fa";
+import { signIn } from "@/auth";
+import { FaGoogle, FaTwitter, FaFacebook } from "react-icons/fa";
 
 interface SocialSignInButtonProps {
   provider: string;
-  onClick: () => void;
 }
 
-const SocialSignInButton = ({ provider, onClick }: SocialSignInButtonProps) => {
-  let icon, bgColor;
+const SocialSignInButton = ({ provider }: SocialSignInButtonProps) => {
+  let icon;
 
   switch (provider) {
     case "google":
       icon = <FaGoogle />;
-      bgColor = "#DB4437";
       break;
     case "twitter":
       icon = <FaTwitter />;
-      bgColor = "#1DA1F2";
       break;
     case "facebook":
       icon = <FaFacebook />;
-      bgColor = "#4267B2";
       break;
     default:
       return null;
   }
 
+  const handleSignIn = async () => {
+    "use server";
+    await signIn(provider);
+  };
+
   return (
-    <button
-      className="social-signin-button"
-      style={{ backgroundColor: bgColor }}
-      onClick={() => onClick(provider)}
-    >
-      <div className="icon">{icon}</div>
-      Continue with {provider.charAt(0).toUpperCase() + provider.slice(1)}
-    </button>
+    <form action={handleSignIn}>
+      <button className="flex items-center justify-center border-[#4C4D4F] border rounded-3xl p-3 w-full gap-2">
+        {icon}
+        <span>
+          Continue with {provider.charAt(0).toUpperCase() + provider.slice(1)}
+        </span>
+      </button>
+    </form>
   );
 };
 
