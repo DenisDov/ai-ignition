@@ -5,7 +5,6 @@ import { sql } from "@vercel/postgres";
 import { AuthError } from "next-auth";
 import { z } from "zod";
 import bcrypt from "bcrypt";
-import { redirect } from "next/navigation";
 
 export async function authenticate(
   prevState: string | undefined,
@@ -75,6 +74,4 @@ export async function register(prevState: State, formData: FormData) {
       message: "Database Error: Failed to Create User.",
     };
   }
-
-  // redirect("/dashboard");
 }
