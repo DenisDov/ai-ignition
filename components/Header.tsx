@@ -26,7 +26,7 @@ const Header = async () => {
   let user = session?.user;
   return (
     <div className="h-20 flex justify-center items-center bg-white">
-      <Link href="/" className="text-3xl">
+      <Link href="/" className="text-3xl no-underline font-sans">
         AI Ignition
       </Link>
       {user && (
