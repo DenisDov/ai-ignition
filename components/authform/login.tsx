@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 
 import { useFormState, useFormStatus } from "react-dom";
-import { authenticate } from "@/lib/actions";
+import { login } from "@/lib/actions";
 import { ReloadIcon } from "@radix-ui/react-icons";
 
 function LoginButton() {
@@ -17,7 +17,7 @@ function LoginButton() {
 }
 
 export default function LoginForm() {
-  const [errorMessage, dispatch] = useFormState(authenticate, undefined);
+  const [errorMessage, dispatch] = useFormState(login, undefined);
   return (
     <form action={dispatch}>
       <div className="grid gap-4">
@@ -52,9 +52,7 @@ export default function LoginForm() {
         aria-live="polite"
         aria-atomic="true"
       >
-        {errorMessage && (
-          <p className="text-sm text-red-500">{errorMessage.message}</p>
-        )}
+        {errorMessage && <p className="text-sm text-red-500">{errorMessage}</p>}
       </div>
     </form>
   );

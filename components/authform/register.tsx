@@ -104,7 +104,7 @@ export default function RegisterForm() {
         aria-atomic="true"
       >
         {errorMessage && (
-          <p className="text-sm text-red-500">{errorMessage.message}</p>
+          <p className="text-sm text-red-500">{errorMessage.toString()}</p>
         )}
       </div>
     </form>
