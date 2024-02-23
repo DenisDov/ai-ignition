@@ -14,7 +14,11 @@ import { signOut } from "@/auth";
 import { User } from "@/lib/definitions";
 import Link from "next/link";
 
-export function UserNav({ user }: User) {
+interface UserNavProps {
+  user: User;
+}
+
+export function UserNav({ user }: UserNavProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

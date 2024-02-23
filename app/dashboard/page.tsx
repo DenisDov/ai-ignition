@@ -24,7 +24,7 @@ export default async function DashboardPage() {
         <Link
           className="flex items-center justify-center rounded-xl  bg-gradient-to-r from-[#C5DCE4] to-[#DBB898] p-4 no-underline"
           href="/dashboard/profile">
-          <span className="font-serif text-4xl">Create CV with AI</span>
+          <span className="select-none font-serif text-4xl">Create CV with AI</span>
         </Link>
       </div>
     </div>
