@@ -22,31 +22,6 @@ export default function LoginForm() {
   return (
     <form action={dispatch}>
       <div className="grid gap-4">
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label htmlFor="firstname">First Name</label>
-            <input
-              className="w-full border-b-2 border-gray-200 py-[9px]  text-sm placeholder:text-gray-500 outline-none"
-              id="firstname"
-              type="text"
-              name="firstname"
-              placeholder="Jane"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="lastname">Last Name</label>
-            <input
-              className="w-full border-b-2 border-gray-200 py-[9px]  text-sm placeholder:text-gray-500 outline-none"
-              id="lastname"
-              type="text"
-              name="lastname"
-              placeholder="Doe"
-              required
-              minLength={6}
-            />
-          </div>
-        </div>
         <div>
           <label htmlFor="password">Email</label>
           <input

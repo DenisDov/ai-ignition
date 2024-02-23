@@ -6,7 +6,7 @@ const FormSeparator = ({ text }: { text: string }) => {
       <div style={{ flex: 1 }}>
         <Separator />
       </div>
-      {text && <div style={{ margin: "0 10px" }}>{text}</div>}
+      {text && <div className="mx-4">{text}</div>}
       <div style={{ flex: 1 }}>
         <Separator />
       </div>
