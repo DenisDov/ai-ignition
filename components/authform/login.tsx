@@ -5,12 +5,11 @@ import { Button } from "@/components/ui/button";
 import { useFormState, useFormStatus } from "react-dom";
 import { authenticate } from "@/lib/actions";
 import { ReloadIcon } from "@radix-ui/react-icons";
-import { Input } from "@/components/ui/input";
 
 function LoginButton() {
   const { pending } = useFormStatus();
   return (
-    <Button className="mt-4 w-full" aria-disabled={pending} disabled={pending}>
+    <Button className="w-full" aria-disabled={pending} disabled={pending}>
       {pending && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
       {pending ? "Please wait..." : "Sign in"}
     </Button>
@@ -45,8 +44,8 @@ export default function LoginForm() {
             minLength={6}
           />
         </div>
+        <LoginButton />
       </div>
-      <LoginButton />
 
       <div
         className="flex h-8 items-end space-x-1"

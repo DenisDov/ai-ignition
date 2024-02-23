@@ -5,11 +5,12 @@ import { Button } from "@/components/ui/button";
 import { useFormState, useFormStatus } from "react-dom";
 import { register } from "@/lib/actions";
 import { ReloadIcon } from "@radix-ui/react-icons";
+import { Checkbox } from "@/components/ui/checkbox";
 
 function RegisterButton() {
   const { pending } = useFormStatus();
   return (
-    <Button className="mt-4 w-full" aria-disabled={pending} disabled={pending}>
+    <Button className="w-full" aria-disabled={pending} disabled={pending}>
       {pending && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
       {pending ? "Please wait..." : "Sign up"}
     </Button>
@@ -69,8 +70,33 @@ export default function RegisterForm() {
             minLength={6}
           />
         </div>
+        <div>
+          <div className="flex items-center space-x-2">
+            <Checkbox id="newsletter" />
+            <label
+              htmlFor="newsletter"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Subscribe to our monthly newsletter
+            </label>
+          </div>
+        </div>
+        <div>
+          <p className="text-sm text-gray-600">
+            By clicking below you agree to our{" "}
+            <a href="#" className="text-blue-500 hover:underline">
+              Terms of Service
+            </a>{" "}
+            and{" "}
+            <a href="#" className="text-blue-500 hover:underline">
+              Privacy Policy
+            </a>
+            .
+          </p>
+        </div>
+
+        <RegisterButton />
       </div>
-      <RegisterButton />
 
       <div
         className="flex h-8 items-end space-x-1"
