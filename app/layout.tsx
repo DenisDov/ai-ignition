@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { fontSans } from "@/lib/fonts";
+import { fontSans, fontSerif } from "@/lib/fonts";
 import "@/styles/globals.css";
 import { Header } from "@/components/Header";
 
@@ -14,8 +14,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={fontSans.variable}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${fontSans.variable} ${fontSerif.variable}`}
+    >
+      <body>
         <Header />
         <main className="container mx-auto">{children}</main>
       </body>
