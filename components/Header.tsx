@@ -11,8 +11,7 @@ function SignOut({ children }: { children: React.ReactNode }) {
       action={async () => {
         "use server";
         await signOut();
-      }}
-    >
+      }}>
       {children}
       <div>
         <Button type="submit">Sign Out</Button>

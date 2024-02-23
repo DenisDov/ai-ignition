@@ -25,12 +25,7 @@ export default function LoginPage() {
         </div>
       </div>
       <div className="basis-96">
-        <Image
-          src="/signin-bg.png"
-          width={384}
-          height={953}
-          alt="Picture of the author"
-        />
+        <Image src="/signin-bg.png" width={384} height={953} alt="Picture of the author" />
       </div>
     </div>
   );
