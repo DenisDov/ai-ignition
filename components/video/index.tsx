@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./VideoComponent.module.css"; // Import your CSS file
+import styles from "./VideoComponent.module.css";
 
 const VideoComponent = ({ id }: { id: string }) => {
   return (
