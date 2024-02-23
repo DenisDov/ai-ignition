@@ -9,7 +9,7 @@ export default async function DashboardPage() {
   // console.log("rows: ", rows);
 
   return (
-    <div className="m-10">
+    <div className="my-6 lg:my-12">
       <div className="grid gap-4 lg:grid-cols-2">
         <div className="overflow-hidden rounded-xl">
           <VideoComponent id="tTGWfXPKxf4?si=iDcqQbgJybcBxVhv" />
