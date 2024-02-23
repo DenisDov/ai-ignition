@@ -1,6 +1,7 @@
 import { sql } from "@vercel/postgres";
 import Link from "next/link";
 import Image from "next/image";
+import Carousel from "@/components/carousel";
 
 export default async function DashboardPage() {
   const { rows } = await sql`SELECT * from USERS`;
@@ -34,9 +35,9 @@ export default async function DashboardPage() {
               >
                 <path
                   stroke="#343537"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2.292"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2.292"
                   d="m28.594 56.813 1.432-24.366a5.156 5.156 0 0 1 5.15-4.853h24.649a5.156 5.156 0 0 1 5.149 4.853l1.432 24.365M47.5 49.938v-15.47m0 0 6.875 6.876M47.5 34.469l-6.875 6.875m26.64 15.468h-39.53a2.58 2.58 0 0 0-2.579 2.579v3.437a2.58 2.58 0 0 0 2.578 2.578h39.532a2.58 2.58 0 0 0 2.578-2.578v-3.437a2.58 2.58 0 0 0-2.578-2.578Z"
                 />
                 <circle
@@ -53,7 +54,9 @@ export default async function DashboardPage() {
           </div>
         </div>
         <div>
-          <div className="min-h-80">03</div>
+          <div className="min-h-80">
+            <Carousel />
+          </div>
         </div>
         <div>
           <Link
