@@ -51,7 +51,11 @@ export function UserNav({ user }: UserNavProps) {
             "use server";
             await signOut();
           }}>
-          <DropdownMenuItem>Log out</DropdownMenuItem>
+          <DropdownMenuItem className="block p-0">
+            <button type="submit" className="w-full px-2 py-1.5 text-left">
+              Log out
+            </button>
+          </DropdownMenuItem>
         </form>
       </DropdownMenuContent>
     </DropdownMenu>

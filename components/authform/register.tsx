@@ -32,7 +32,7 @@ export default function RegisterForm() {
               type="text"
               name="firstname"
               placeholder="Jane"
-              required
+              // required
             />
           </div>
           <div>
@@ -43,8 +43,7 @@ export default function RegisterForm() {
               type="text"
               name="lastname"
               placeholder="Doe"
-              required
-              minLength={6}
+              // required
             />
           </div>
         </div>
@@ -73,7 +72,7 @@ export default function RegisterForm() {
         </div>
         <div>
           <div className="flex items-center space-x-2">
-            <Checkbox id="newsletter" />
+            <Checkbox id="newsletter" required />
             <label
               htmlFor="newsletter"
               className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
