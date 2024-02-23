@@ -67,6 +67,7 @@ export async function register(prevState: any, formData: FormData) {
       INSERT INTO users (email, password, registration_method)
       VALUES (${email}, ${hashedPassword}, ${credentials})
     `;
+      await signIn("credentials", { email, password });
     } catch (error) {
       if (error instanceof AuthError) {
         return "Something went wrong.";
