@@ -6,7 +6,7 @@ import LoginForm from "@/components/authform/login";
 
 export default function LoginPage() {
   return (
-    <div className="bg-white flex gap-20 my-12 rounded-xl">
+    <div className="bg-white flex gap-20 my-12 rounded-xl max-w-[960px] mx-auto">
       <div className="p-6 flex-1">
         <h2>Sign in</h2>
         <p>

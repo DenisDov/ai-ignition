@@ -54,7 +54,7 @@ export default async function DashboardPage() {
           </div>
         </div>
         <div>
-          <div className="min-h-80">
+          <div className="min-h-80 rounded-xl bg-white">
             <Carousel />
           </div>
         </div>

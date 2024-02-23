@@ -6,7 +6,7 @@ import RegisterForm from "@/components/authform/register";
 
 export default function RegisterPage() {
   return (
-    <div className="bg-white flex gap-20 my-12 rounded-xl">
+    <div className="bg-white flex gap-20 my-12 rounded-xl max-w-[960px] mx-auto">
       <div className="p-6 flex-1">
         <h2>Create an account</h2>
         <p>
