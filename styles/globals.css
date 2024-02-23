@@ -71,7 +71,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background font-sans text-foreground antialiased;
   }
   p,
   span,
@@ -82,6 +82,6 @@
     @apply scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-5xl;
   }
   a {
-    @apply text-sm underline font-serif;
+    @apply font-serif text-sm underline;
   }
 }

@@ -6,13 +6,13 @@ import LoginForm from "@/components/authform/login";
 
 export default function LoginPage() {
   return (
-    <div className="bg-white flex gap-20 my-12 rounded-xl max-w-[960px] mx-auto">
-      <div className="p-6 flex-1">
+    <div className="mx-auto my-12 flex max-w-[960px] gap-20 rounded-xl bg-white">
+      <div className="flex-1 p-6">
         <h2>Sign in</h2>
         <p>
           {`Don't have an account?`} <Link href="/register">Sign up</Link>
         </p>
-        <div className="grid gap-3 my-4">
+        <div className="my-4 grid gap-3">
           <SocialSignInButton provider="facebook" />
           <SocialSignInButton provider="google" />
           <SocialSignInButton provider="twitter" />

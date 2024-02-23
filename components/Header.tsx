@@ -7,7 +7,7 @@ import { getInitials } from "@/lib/utils";
 function SignOut({ children }: { children: React.ReactNode }) {
   return (
     <form
-      className="flex items-center gap-2 absolute right-4"
+      className="absolute right-4 flex items-center gap-2"
       action={async () => {
         "use server";
         await signOut();
@@ -25,8 +25,8 @@ const Header = async () => {
   let session = await auth();
   let user = session?.user;
   return (
-    <div className="h-20 flex justify-center items-center bg-white">
-      <Link href="/" className="text-3xl no-underline font-sans">
+    <div className="flex h-20 items-center justify-center bg-white">
+      <Link href="/" className="font-sans text-3xl no-underline">
         AI Ignition
       </Link>
       {user && (

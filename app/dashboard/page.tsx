@@ -10,19 +10,14 @@ export default async function DashboardPage() {
 
   return (
     <div className="m-10">
-      <div className="grid lg:grid-cols-2 gap-4">
-        <div className="rounded-xl overflow-hidden">
+      <div className="grid gap-4 lg:grid-cols-2">
+        <div className="overflow-hidden rounded-xl">
           <VideoComponent id="tTGWfXPKxf4?si=iDcqQbgJybcBxVhv" />
         </div>
 
-        <label className="flex flex-col justify-center items-center gap-1  bg-gradient-to-r from-[#DBB898] to-[#9DC1CE]  rounded-xl">
+        <label className="flex flex-col items-center justify-center gap-1  rounded-xl bg-gradient-to-r   from-[#DBB898] to-[#9DC1CE]">
           <input type="file" hidden />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="94"
-            height="94"
-            fill="none"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="94" height="94" fill="none">
             <path
               stroke="#343537"
               strokeLinecap="round"
@@ -32,18 +27,17 @@ export default async function DashboardPage() {
             />
             <circle cx="47" cy="47" r="46" stroke="#343537" strokeWidth="2" />
           </svg>
-          <span className="text-2xl font-serif">Upload CV</span>
+          <span className="font-serif text-2xl">Upload CV</span>
           <span>( PDF or DOCX )</span>
         </label>
 
-        <div className="rounded-xl bg-white h-full">
+        <div className="rounded-xl bg-white">
           <Carousel />
         </div>
 
         <Link
-          className="bg-gradient-to-r from-[#C5DCE4] to-[#DBB898]  rounded-xl no-underline flex items-center justify-center"
-          href="/dashboard/about"
-        >
+          className="flex items-center justify-center  rounded-xl bg-gradient-to-r from-[#C5DCE4] to-[#DBB898] no-underline"
+          href="/dashboard/about">
           <span className="font-serif text-4xl">Create CV with AI</span>
         </Link>
       </div>

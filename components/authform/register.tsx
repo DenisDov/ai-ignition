@@ -27,7 +27,7 @@ export default function RegisterForm() {
           <div>
             <label htmlFor="firstname">First Name</label>
             <input
-              className="w-full border-b-2 border-gray-200 py-[9px]  text-sm placeholder:text-gray-500 outline-none"
+              className="w-full border-b-2 border-gray-200 py-[9px]  text-sm outline-none placeholder:text-gray-500"
               id="firstname"
               type="text"
               name="firstname"
@@ -38,7 +38,7 @@ export default function RegisterForm() {
           <div>
             <label htmlFor="lastname">Last Name</label>
             <input
-              className="w-full border-b-2 border-gray-200 py-[9px]  text-sm placeholder:text-gray-500 outline-none"
+              className="w-full border-b-2 border-gray-200 py-[9px]  text-sm outline-none placeholder:text-gray-500"
               id="lastname"
               type="text"
               name="lastname"
@@ -51,7 +51,7 @@ export default function RegisterForm() {
         <div>
           <label htmlFor="password">Email</label>
           <input
-            className="w-full border-b-2 border-gray-200 py-[9px]  text-sm placeholder:text-gray-500 outline-none"
+            className="w-full border-b-2 border-gray-200 py-[9px]  text-sm outline-none placeholder:text-gray-500"
             id="email"
             type="email"
             name="email"
@@ -62,7 +62,7 @@ export default function RegisterForm() {
         <div>
           <label htmlFor="password">Password</label>
           <input
-            className="w-full border-b-2 border-gray-200 py-[9px]  text-sm placeholder:text-gray-500 outline-none"
+            className="w-full border-b-2 border-gray-200 py-[9px]  text-sm outline-none placeholder:text-gray-500"
             id="password"
             type="password"
             name="password"
@@ -76,8 +76,7 @@ export default function RegisterForm() {
             <Checkbox id="newsletter" />
             <label
               htmlFor="newsletter"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
               Subscribe to our monthly newsletter
             </label>
           </div>
@@ -104,14 +103,8 @@ export default function RegisterForm() {
         </div>
       </div>
 
-      <div
-        className="flex h-8 items-end space-x-1"
-        aria-live="polite"
-        aria-atomic="true"
-      >
-        {errorMessage && (
-          <p className="text-sm text-red-500">{errorMessage.toString()}</p>
-        )}
+      <div className="flex h-8 items-end space-x-1" aria-live="polite" aria-atomic="true">
+        {errorMessage && <p className="text-sm text-red-500">{errorMessage.toString()}</p>}
       </div>
     </form>
   );

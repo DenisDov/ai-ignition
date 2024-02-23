@@ -30,11 +30,9 @@ const SocialSignInButton = ({ provider }: SocialSignInButtonProps) => {
 
   return (
     <form action={handleSignIn}>
-      <button className="flex items-center justify-center border-[#4C4D4F] border rounded-3xl p-3 w-full gap-2">
+      <button className="flex w-full items-center justify-center gap-2 rounded-3xl border border-[#4C4D4F] p-3">
         {icon}
-        <span>
-          Continue with {provider.charAt(0).toUpperCase() + provider.slice(1)}
-        </span>
+        <span>Continue with {provider.charAt(0).toUpperCase() + provider.slice(1)}</span>
       </button>
     </form>
   );
