@@ -14,7 +14,7 @@ import { signOut } from "@/auth";
 import { User } from "@/lib/definitions";
 import Link from "next/link";
 
-export function UserNav({ user }: User) {
+export function UserNav(user: User) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -28,12 +28,8 @@ export function UserNav({ user }: User) {
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">
-              {user?.name || user.email}
-            </p>
-            <p className="text-xs leading-none text-muted-foreground">
-              {user?.email}
-            </p>
+            <p className="text-sm font-medium leading-none">{user?.name || user.email}</p>
+            <p className="text-xs leading-none text-muted-foreground">{user?.email}</p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -50,8 +46,7 @@ export function UserNav({ user }: User) {
           action={async () => {
             "use server";
             await signOut();
-          }}
-        >
+          }}>
           <DropdownMenuItem>Log out</DropdownMenuItem>
         </form>
       </DropdownMenuContent>

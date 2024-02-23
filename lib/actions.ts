@@ -6,6 +6,7 @@ import { AuthError } from "next-auth";
 import { z } from "zod";
 import bcrypt from "bcrypt";
 import { getUser } from "./data";
+import { User } from "./definitions";
 
 export type State = {
   errors?: {
@@ -53,7 +54,7 @@ export async function register(prevState: State, formData: FormData) {
   // Prepare data for insertion into the database
   const { email, password } = validatedFields.data;
 
-  const user = await getUser(email);
+  const user: User = await getUser(email);
 
   if (!user) {
     const hashedPassword = await bcrypt.hash(password, 10);

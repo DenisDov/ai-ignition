@@ -29,9 +29,9 @@ export const {
 
         if (parsedCredentials.success) {
           const { email, password } = parsedCredentials.data;
-          const user = await getUser(email);
+          const user: User = await getUser(email);
           if (!user) return null;
-          const passwordsMatch = await bcrypt.compare(password, user.password);
+          const passwordsMatch = await bcrypt.compare(password, user?.password!);
 
           if (passwordsMatch) return user;
         }
@@ -46,7 +46,7 @@ export const {
       if (account?.provider === "google") {
         const email = profile?.email;
         const name = profile?.name;
-        const user = await getUser(profile?.email!);
+        const user: User = await getUser(profile?.email!);
         if (!user) {
           try {
             await sql`

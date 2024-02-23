@@ -1,6 +1,5 @@
 import { sql } from "@vercel/postgres";
 import Link from "next/link";
-import Image from "next/image";
 import Carousel from "@/components/carousel";
 import VideoComponent from "@/components/video";
 import { FileInput } from "@/components/fileInput";
