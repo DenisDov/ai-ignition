@@ -10,7 +10,10 @@ export default function RegisterPage() {
       <div className="flex-1 p-6">
         <h2>Create an account</h2>
         <p>
-          Already have an account? <Link href="/login">Log in</Link>
+          Already have an account?{" "}
+          <Link href="/login" className="underline">
+            Log in
+          </Link>
         </p>
         <div className="my-4 grid gap-3">
           <SocialSignInButton provider="facebook" />
@@ -25,12 +28,7 @@ export default function RegisterPage() {
         </div>
       </div>
       <div className="basis-96">
-        <Image
-          src="/signin-bg.png"
-          width={384}
-          height={953}
-          alt="Picture of the author"
-        />
+        <Image src="/signin-bg.png" width={384} height={953} alt="Picture of the author" />
       </div>
     </div>
   );

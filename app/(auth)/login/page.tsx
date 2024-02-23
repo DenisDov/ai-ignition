@@ -10,7 +10,10 @@ export default function LoginPage() {
       <div className="flex-1 p-6">
         <h2>Sign in</h2>
         <p>
-          {`Don't have an account?`} <Link href="/register">Sign up</Link>
+          {`Don't have an account?`}{" "}
+          <Link href="/register" className="underline">
+            Sign up
+          </Link>
         </p>
         <div className="my-4 grid gap-3">
           <SocialSignInButton provider="facebook" />

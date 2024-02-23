@@ -97,7 +97,10 @@ export default function RegisterForm() {
         <RegisterButton />
         <div>
           <p>
-            Already have an account? <Link href="/login">Log in</Link>
+            Already have an account?{" "}
+            <Link href="/login" className="underline">
+              Log in
+            </Link>
           </p>
         </div>
       </div>
