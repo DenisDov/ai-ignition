@@ -5,12 +5,12 @@ import Carousel from "@/components/carousel";
 import VideoComponent from "@/components/video";
 
 export default async function DashboardPage() {
-  const { rows } = await sql`SELECT * from USERS`;
-  console.log("rows: ", rows);
+  // const { rows } = await sql`SELECT * from USERS`;
+  // console.log("rows: ", rows);
 
   return (
     <div className="m-10">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid lg:grid-cols-2 gap-4">
         <div className="rounded-xl overflow-hidden">
           <VideoComponent id="tTGWfXPKxf4?si=iDcqQbgJybcBxVhv" />
         </div>
