@@ -6,6 +6,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import { register } from "@/lib/actions";
 import { ReloadIcon } from "@radix-ui/react-icons";
 import { Checkbox } from "@/components/ui/checkbox";
+import Link from "next/link";
 
 function RegisterButton() {
   const { pending } = useFormStatus();
@@ -96,6 +97,11 @@ export default function RegisterForm() {
         </div>
 
         <RegisterButton />
+        <div>
+          <p>
+            Already have an account? <Link href="/login">Log in</Link>
+          </p>
+        </div>
       </div>
 
       <div
