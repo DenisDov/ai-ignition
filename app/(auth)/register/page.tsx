@@ -6,7 +6,7 @@ import RegisterForm from "@/components/authform/register";
 
 export default function RegisterPage() {
   return (
-    <div className="mx-auto my-12 flex max-w-[960px] gap-20 rounded-xl bg-white">
+    <div className="mx-auto my-6 flex max-w-[960px] gap-20 rounded-xl bg-white lg:my-12">
       <div className="flex-1 p-6">
         <h2>Create an account</h2>
         <p>
@@ -27,7 +27,7 @@ export default function RegisterPage() {
           <RegisterForm />
         </div>
       </div>
-      <div className="basis-96">
+      <div className="hidden basis-96 lg:block">
         <Image src="/signin-bg.png" width={384} height={953} alt="Picture of the author" />
       </div>
     </div>

@@ -105,9 +105,7 @@ export default function RegisterForm() {
         </div>
       </div>
 
-      <div className="flex h-8 items-end space-x-1" aria-live="polite" aria-atomic="true">
-        {errorMessage && <p className="text-sm text-red-500">{errorMessage.toString()}</p>}
-      </div>
+      {errorMessage && <p className="text-sm text-red-500">{errorMessage.toString()}</p>}
     </form>
   );
 }
