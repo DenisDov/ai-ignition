@@ -68,11 +68,14 @@ const Carousel = () => {
   );
 
   return (
-    <div className="p-4">
+    <>
       <div ref={sliderRef} className="keen-slider">
         {slides.map((slide) => {
           return (
-            <div className="keen-slider__slide grid place-items-center" key={slide.id}>
+            <div
+              className="keen-slider__slide grid place-items-center"
+              key={slide.id}
+            >
               <Image
                 width={62}
                 height={62}
@@ -81,7 +84,9 @@ const Carousel = () => {
                 className="w-62 h-62 mb-4 rounded-full"
               />
               <span className="mb-2 font-serif text-2xl">{slide.name}</span>
-              <span className="text-center text-[18px] text-[#A5A6A7]">{slide.text}</span>
+              <span className="text-center text-[18px] text-[#A5A6A7]">
+                {slide.text}
+              </span>
             </div>
           );
         })}
@@ -90,32 +95,45 @@ const Carousel = () => {
         <div className="mt-4 flex justify-center gap-3">
           <Arrow
             left
-            onClick={(e: any) => e.stopPropagation() || instanceRef.current?.prev()}
+            onClick={(e: any) =>
+              e.stopPropagation() || instanceRef.current?.prev()
+            }
             disabled={currentSlide === 0}
           />
 
           <Arrow
-            onClick={(e: any) => e.stopPropagation() || instanceRef.current?.next()}
-            disabled={currentSlide === instanceRef.current.track.details.slides.length - 1}
+            onClick={(e: any) =>
+              e.stopPropagation() || instanceRef.current?.next()
+            }
+            disabled={
+              currentSlide ===
+              instanceRef.current.track.details.slides.length - 1
+            }
           />
         </div>
       )}
-    </div>
+    </>
   );
 };
 
-function Arrow(props: { disabled: boolean; left?: boolean; onClick: (e: any) => void }) {
+function Arrow(props: {
+  disabled: boolean;
+  left?: boolean;
+  onClick: (e: any) => void;
+}) {
   const disabled = props.disabled ? " arrow--disabled" : "";
   return (
     <div
       className="group grid h-10 w-10 place-items-center rounded-full border border-[#434343] transition hover:bg-[#434343]"
-      onClick={props.onClick}>
+      onClick={props.onClick}
+    >
       <svg
         className={`arrow h-6 w-6 group-hover:fill-white ${
           props.left ? "arrow--left" : "arrow--right"
         } ${disabled}`}
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 21 19">
+        viewBox="0 0 21 19"
+      >
         {props.left && (
           <path d="M0.210665 9.17941L8.36691 1.02316C8.45194 0.938129 8.56726 0.890364 8.6875 0.890364C8.80774 0.890364 8.92306 0.938129 9.00809 1.02316C9.09311 1.10818 9.14088 1.2235 9.14088 1.34374C9.14088 1.46398 9.09311 1.5793 9.00809 1.66433L1.62555 9.04687L20.4688 9.04687C20.5889 9.04687 20.7042 9.09461 20.7892 9.17958C20.8741 9.26456 20.9219 9.37982 20.9219 9.49999C20.9219 9.62017 20.8741 9.73542 20.7892 9.8204C20.7042 9.90538 20.5889 9.95312 20.4688 9.95312L1.62555 9.95312L9.00809 17.3357C9.09311 17.4207 9.14088 17.536 9.14088 17.6562C9.14088 17.7765 9.09311 17.8918 9.00809 17.9768C8.92306 18.0619 8.80774 18.1096 8.6875 18.1096C8.56726 18.1096 8.45194 18.0619 8.36691 17.9768L0.210665 9.82058C0.168533 9.77849 0.135111 9.72852 0.112309 9.67351C0.0895061 9.6185 0.0777683 9.55954 0.0777683 9.49999C0.0777683 9.44044 0.0895061 9.38148 0.112309 9.32647C0.135111 9.27146 0.168533 9.22149 0.210665 9.17941Z" />
         )}
