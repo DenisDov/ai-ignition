@@ -8,7 +8,7 @@ const Header = async () => {
   let user: any = session?.user;
   return (
     <div className="flex h-20 items-center justify-center bg-white">
-      <Link href="/" className="font-sans text-3xl no-underline">
+      <Link href="/" className="select-none font-sans text-3xl no-underline">
         AI Ignition
       </Link>
       {user && (
